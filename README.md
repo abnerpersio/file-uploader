@@ -1,2 +1,2 @@
 # file-uploader
-A REST Service for uploading file to any place
+A REST service for uploading file to any place
