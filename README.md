@@ -1,9 +1,10 @@
-# file-uploader
-A REST service for uploading file to any place
+# File Uploader
 
-The main idea is be platform agnostic
+**A REST service for managing files with any platform**
 
-Available platform uploads:
+The main idea is to be platform agnostic
+
+Available platforms for upload:
 
 - [ ] AWS S3
 - [ ] Google Cloud
