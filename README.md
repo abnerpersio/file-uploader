@@ -6,7 +6,7 @@ The main idea is to be platform agnostic
 
 Available platforms for upload:
 
-- [ ] AWS S3
+- [x] AWS S3
 - [ ] Google Cloud
 - [ ] Google Drive
 - [ ] Azure Blob Storage
