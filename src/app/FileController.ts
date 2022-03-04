@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 
 import { FileSerializer } from './views/FileSerializer';
-import { FileProviderSelector } from './upload/FileProvider';
+import { FileProviderSelector } from './providers/FileProvider';
 
 import { RequestError } from '../shared/errors/RequestError';
 import { REQUIRED_FILE_FOR_UPLOAD } from '../shared/constants/messages';
