@@ -1,4 +1,4 @@
-import './config/env';
+import '@config/env';
 import server from './server';
 
 const PORT = process.env.PORT || 8080;

@@ -12,7 +12,13 @@
     "incremental": true,
     "skipLibCheck": true,
     "strict": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "rootDir": ".",
+    "paths": {
+      "@config/*": [
+        "./src/config/*"
+      ]
+    }
   },
   "ts-node": {
     "files": true,
