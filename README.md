@@ -14,12 +14,34 @@ Available platforms for upload:
 
 ## How to run the project
 
-1. Clone this project
-2. Configure `.env` file based on `.env.example` with your configurations
-3. Run `yarn` or `npm install`
-4. Run `yarn dev` or `npm run dev`
+*1. Clone this project*
+```bash
+git clone https://github.com/abnerpersio/file-uploader.git
+cd file-uploader
+```
+
+*2. Configure `.env` file based on `.env.example` with your configurations*
+
+You can configure only the providers that you want. Eg.: AWS or Firebase
+
+*3. Install dependencies*
+```bash
+yarn // or npm install
+```
+
+*4. Run development server*
+```bash
+yarn dev // or npm run dev
+```
 
 **If you wanna run in production:**
 
-5. Run `yarn build` or `npm run build`
-6. Run `yarn start` or `npm run start`
+*5. Build the project*
+```bash
+yarn build // or npm run build
+```
+
+*6. Start the production server*
+```bash
+yarn start // or npm run start
+```
