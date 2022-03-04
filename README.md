@@ -10,4 +10,4 @@ Available platforms for upload:
 - [ ] Google Cloud
 - [ ] Google Drive
 - [ ] Azure Blob Storage
-- [ ] Firebase Storage
+- [x] Firebase Storage
