@@ -1,6 +1,8 @@
 import { REQUIRED_FILE_CLIENT } from '../../shared/constants/messages';
 import { RequestError } from '../../shared/errors/RequestError';
+
 import { AWSClient } from './AWSClient';
+import { FirebaseClient } from './FirebaseClient';
 
 export interface IFileClient {
   upload(
@@ -11,12 +13,15 @@ export interface IFileClient {
 }
 
 export class FileClientSelector {
-  constructor(private client: string) {}
+  constructor(private uploadClient: string) {}
 
   select(): IFileClient {
-    switch (this.client) {
-      case 'aws-s3':
+    switch (this.uploadClient) {
+      case AWSClient.clientName:
         return new AWSClient();
+
+      case FirebaseClient.clientName:
+        return new FirebaseClient();
 
       default:
         throw new RequestError(REQUIRED_FILE_CLIENT, 422);

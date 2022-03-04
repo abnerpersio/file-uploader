@@ -6,22 +6,24 @@ import { FileClientSelector } from './upload/FileClient';
 import { RequestError } from '../shared/errors/RequestError';
 import { REQUIRED_FILE_FOR_UPLOAD } from '../shared/constants/messages';
 
-type ClientParamsType = {
-  client: string;
+type UploadQueryType = {
+  upload_client: string;
 };
 
+type UploadBodyType = Record<string, unknown>;
+
 export class FileController {
-  async store(req: Request<ClientParamsType>, res: Response) {
-    const { client } = req.params;
+  async store(req: Request<unknown, unknown, UploadBodyType, UploadQueryType>, res: Response) {
+    const { upload_client: uploadClient } = req.query;
     const { file, body } = req;
 
     if (!file) throw new RequestError(REQUIRED_FILE_FOR_UPLOAD, 422);
 
     const formattedFileName = FileSerializer.formatName(file.originalname);
 
-    const uploadClient = new FileClientSelector(client).select();
+    const client = new FileClientSelector(uploadClient).select();
 
-    const url = await uploadClient.upload(file, formattedFileName, body);
+    const url = await client.upload(file, formattedFileName, body);
 
     res.json({
       success: true,

@@ -6,4 +6,4 @@ const fileController = new FileController();
 
 export const FileRouter = Router();
 
-FileRouter.post('/:client', UploadMiddleware, fileController.store);
+FileRouter.post('/', UploadMiddleware, fileController.store);
