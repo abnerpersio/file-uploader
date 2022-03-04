@@ -1,16 +1,13 @@
 import { firebaseStorage } from '@config/firebase';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 
-import { IFileProvider } from './FileProvider';
+import { FileProvider } from './FileProvider';
 
-export class FirebaseProvider implements IFileProvider {
-  static readonly clientName = 'firebase';
+export class FirebaseProvider extends FileProvider {
+  static clientName = 'firebase';
 
-  async upload(
-    file: Express.Multer.File,
-    fileName: string,
-    metadata: Record<string, any>,
-  ): Promise<string | null> {
+  async upload(file: Express.Multer.File, metadata: Record<string, any>): Promise<string | null> {
+    const fileName = this.formatFileName(file.originalname);
     const FILE_PATH = `uploads/${fileName}`;
 
     const fileStorageRef = ref(firebaseStorage, FILE_PATH);

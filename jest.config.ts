@@ -3,7 +3,7 @@ import { compilerOptions } from './tsconfig.json';
 
 export default {
   moduleFileExtensions: ['js', 'json', 'ts'],
-  testRegex: '.(spec|test).ts$',
+  testRegex: '.(spec).ts$',
   transform: {
     '^.+\\.(t|j)s$': 'ts-jest',
   },

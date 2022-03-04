@@ -16,7 +16,7 @@
     "rootDir": ".",
     "paths": {
       "@config/*": [
-        "./src/config/*"
+        "./src/infra/config/*"
       ]
     }
   },
