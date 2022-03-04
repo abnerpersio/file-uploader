@@ -1,7 +1,7 @@
 import { AWS_BUCKET, S3, UploadedFileAWSType } from '@config/aws';
-import { IFileClient } from './FileClient';
+import { IFileProvider } from './FileProvider';
 
-export class AWSClient implements IFileClient {
+export class AWSProvider implements IFileProvider {
   static readonly clientName = 'aws-s3';
 
   async upload(

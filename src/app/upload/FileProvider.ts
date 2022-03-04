@@ -1,10 +1,10 @@
 import { REQUIRED_FILE_CLIENT } from '../../shared/constants/messages';
 import { RequestError } from '../../shared/errors/RequestError';
 
-import { AWSClient } from './AWSClient';
-import { FirebaseClient } from './FirebaseClient';
+import { AWSProvider } from './AWSProvider';
+import { FirebaseProvider } from './FirebaseProvider';
 
-export interface IFileClient {
+export interface IFileProvider {
   upload(
     file: Express.Multer.File,
     fileName: string,
@@ -12,16 +12,16 @@ export interface IFileClient {
   ): Promise<string | null>;
 }
 
-export class FileClientSelector {
+export class FileProviderSelector {
   constructor(private uploadClient: string) {}
 
-  select(): IFileClient {
+  select(): IFileProvider {
     switch (this.uploadClient) {
-      case AWSClient.clientName:
-        return new AWSClient();
+      case AWSProvider.clientName:
+        return new AWSProvider();
 
-      case FirebaseClient.clientName:
-        return new FirebaseClient();
+      case FirebaseProvider.clientName:
+        return new FirebaseProvider();
 
       default:
         throw new RequestError(REQUIRED_FILE_CLIENT, 422);

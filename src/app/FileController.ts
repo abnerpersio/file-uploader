@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 
 import { FileSerializer } from './views/FileSerializer';
-import { FileClientSelector } from './upload/FileClient';
+import { FileProviderSelector } from './upload/FileProvider';
 
 import { RequestError } from '../shared/errors/RequestError';
 import { REQUIRED_FILE_FOR_UPLOAD } from '../shared/constants/messages';
@@ -21,7 +21,7 @@ export class FileController {
 
     const formattedFileName = FileSerializer.formatName(file.originalname);
 
-    const client = new FileClientSelector(uploadClient).select();
+    const client = new FileProviderSelector(uploadClient).select();
 
     const url = await client.upload(file, formattedFileName, body);
 

@@ -1,9 +1,9 @@
 import { firebaseStorage } from '@config/firebase';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 
-import { IFileClient } from './FileClient';
+import { IFileProvider } from './FileProvider';
 
-export class FirebaseClient implements IFileClient {
+export class FirebaseProvider implements IFileProvider {
   static readonly clientName = 'firebase';
 
   async upload(
