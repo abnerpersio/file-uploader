@@ -4,7 +4,7 @@ type UploadQuery = {
   upload_provider: string;
 };
 
-type UploadBody = Record<string, unknown>;
+export type UploadBody = Record<string, unknown>;
 
 export type UploadRequest = Request<unknown, unknown, UploadBody, UploadQuery>;
 

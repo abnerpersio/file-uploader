@@ -17,6 +17,12 @@
     "paths": {
       "@config/*": [
         "./src/infra/config/*"
+      ],
+      "@shared/*": [
+        "./src/shared/*"
+      ],
+      "@domain/*": [
+        "./src/domain/*"
       ]
     }
   },
