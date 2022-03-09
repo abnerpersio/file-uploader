@@ -14,7 +14,7 @@ export class FileProviderSelector {
         return new FirebaseProvider();
 
       default:
-        throw new RequestError(FILE_CLIENT_NOT_FOUND, 422);
+        throw new RequestError(FILE_CLIENT_NOT_FOUND, 400);
     }
   }
 }

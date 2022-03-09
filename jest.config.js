@@ -11,5 +11,6 @@ module.exports = {
   coverageDirectory: './coverage',
   testEnvironment: 'node',
   modulePathIgnorePatterns: ['node_modules'],
+  setupFilesAfterEnv: ['./jest.setup.js'],
   moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths, { prefix: '<rootDir>/' }),
 };

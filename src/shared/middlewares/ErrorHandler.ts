@@ -1,9 +1,11 @@
 import { NextFunction, Request, Response } from 'express';
 
-export function ErrorHandler(error: Error, req: Request, res: Response, _next: NextFunction) {
-  console.error('Error Handler', error);
+import { RequestError } from '../errors/RequestError';
 
-  return res.status(500).json({
+export function ErrorHandler(error: Error, _req: Request, res: Response, _next: NextFunction) {
+  const { statusCode = 500 } = error as RequestError;
+
+  return res.status(statusCode).json({
     success: false,
     message: error.message,
   });

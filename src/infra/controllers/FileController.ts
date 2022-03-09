@@ -1,10 +1,11 @@
-import { FileUploadUseCase } from '../../domain/files/useCases/FIleUploadUseCase';
+import { FileUploadUseCase } from '@domain/files/useCases/FIleUploadUseCase';
+
 import { UploadRequest, UploadResponse } from '../types/file-request';
 
 export class FileController {
   constructor(private fileUploadUseCase: FileUploadUseCase) {}
 
-  async upload(req: UploadRequest, res: UploadResponse) {
+  upload = async (req: UploadRequest, res: UploadResponse) => {
     const { upload_provider } = req.query;
     const { file, body } = req;
 
@@ -20,5 +21,5 @@ export class FileController {
         url: fileUrl,
       },
     });
-  }
+  };
 }

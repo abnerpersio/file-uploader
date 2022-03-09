@@ -5,7 +5,7 @@ import { firebaseStorage } from '@config/firebase';
 import { FileProvider } from './FileProvider';
 
 export class FirebaseProvider extends FileProvider {
-  static clientName = 'firebase';
+  static readonly clientName = 'firebase';
 
   async upload(file: Express.Multer.File, metadata: Record<string, any>): Promise<string | null> {
     const fileName = this.formatFileName(file.originalname);
