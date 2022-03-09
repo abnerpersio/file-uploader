@@ -20,5 +20,6 @@ module.exports = {
   plugins: ['@typescript-eslint'],
   rules: {
     '@typescript-eslint/camelcase': 'off',
+    'no-unused-vars': ['error', { argsIgnorePattern: '_*' }],
   },
 };
