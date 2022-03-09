@@ -18,6 +18,9 @@
       "@config/*": [
         "./src/infra/config/*"
       ],
+      "@infra/*": [
+        "./src/infra/*"
+      ],
       "@shared/*": [
         "./src/shared/*"
       ],

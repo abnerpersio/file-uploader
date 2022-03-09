@@ -1,5 +1,6 @@
+import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
+
 import { firebaseStorage } from '@config/firebase';
-import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 
 import { FileProvider } from './FileProvider';
 

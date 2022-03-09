@@ -14,7 +14,7 @@ export class FileController {
       uploadProvider: upload_provider,
     });
 
-    res.json({
+    res.status(201).json({
       success: true,
       data: {
         url: fileUrl,

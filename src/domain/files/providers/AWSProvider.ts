@@ -1,4 +1,5 @@
 import { AWS_BUCKET, S3, UploadedFileAWSType } from '@config/aws';
+
 import { FileProvider } from './FileProvider';
 
 export class AWSProvider extends FileProvider {

@@ -1,6 +1,5 @@
-import { REQUIRED_FILE_CLIENT } from '../../../shared/constants/messages';
+import { FILE_CLIENT_NOT_FOUND } from '../../../shared/constants/messages';
 import { RequestError } from '../../../shared/errors/RequestError';
-
 import { AWSProvider } from './AWSProvider';
 import { FileProvider } from './FileProvider';
 import { FirebaseProvider } from './FirebaseProvider';
@@ -15,7 +14,7 @@ export class FileProviderSelector {
         return new FirebaseProvider();
 
       default:
-        throw new RequestError(REQUIRED_FILE_CLIENT, 422);
+        throw new RequestError(FILE_CLIENT_NOT_FOUND, 422);
     }
   }
 }
