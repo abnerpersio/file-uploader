@@ -15,11 +15,15 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
+    tsconfigRootDir: __dirname,
     project: './tsconfig.json',
   },
   plugins: ['@typescript-eslint'],
   rules: {
     '@typescript-eslint/camelcase': 'off',
     'no-unused-vars': ['error', { argsIgnorePattern: '_*' }],
+    'import/prefer-default-export': 'off',
+    'class-methods-use-this': 'off',
+    'no-useless-constructor': 'off',
   },
 };
