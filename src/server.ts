@@ -1,10 +1,10 @@
 import express from 'express';
 import 'express-async-errors';
 
-import { AppRouter } from '@infra/routes/AppRouter';
-import { FileRouter } from '@infra/routes/FileRouter';
-import { CorsMiddleware } from '@shared/middlewares/CorsMiddleware';
-import { ErrorHandler } from '@shared/middlewares/ErrorHandler';
+import { AppRouter } from '@infra/routes/app-router';
+import { FileRouter } from '@infra/routes/file-router';
+import { CorsMiddleware } from '@shared/middlewares/cors-middleware';
+import { ErrorHandler } from '@shared/middlewares/error-handler';
 
 const server = express();
 

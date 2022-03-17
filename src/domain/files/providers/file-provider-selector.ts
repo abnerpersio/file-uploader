@@ -1,8 +1,9 @@
-import { FILE_CLIENT_NOT_FOUND } from '../../../shared/constants/messages';
-import { RequestError } from '../../../shared/errors/RequestError';
-import { AWSProvider } from './AWSProvider';
-import { FileProvider } from './FileProvider';
-import { FirebaseProvider } from './FirebaseProvider';
+import { FILE_CLIENT_NOT_FOUND } from '@shared/constants/messages';
+import { RequestError } from '@shared/errors/request-error';
+
+import { AWSProvider } from './aws-provider';
+import { FileProvider } from './file-provider';
+import { FirebaseProvider } from './firebase-provider';
 
 export class FileProviderSelector {
   select(uploadClient: string): FileProvider {

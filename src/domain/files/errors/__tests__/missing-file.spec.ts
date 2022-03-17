@@ -1,4 +1,4 @@
-import { MissingFile } from '../MissingFile';
+import { MissingFile } from '../missing-file';
 
 describe(MissingFile.name, () => {
   it('should create a missing file error', () => {

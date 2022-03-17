@@ -1,9 +1,11 @@
 import path from 'path';
 import request from 'supertest';
 
-import { FileController } from '@infra/controllers/FileController';
+import { FileController } from '@infra/controllers/file-controller';
 
 import server from '../../src/server';
+
+type CallbackType = (error: Error | null, data: unknown) => void;
 
 jest.mock('aws-sdk', () => ({
   config: {
@@ -14,7 +16,7 @@ jest.mock('aws-sdk', () => ({
   S3: jest.fn().mockImplementation(() => ({
     upload: jest.fn().mockImplementation(() => ({
       on: jest.fn().mockReturnThis(),
-      send: jest.fn().mockImplementation((cb: Function) => {
+      send: jest.fn().mockImplementation((cb: CallbackType) => {
         cb(null, {
           Location: 'http://bucket/mock-image.png',
           ETag: 'fasdsad',

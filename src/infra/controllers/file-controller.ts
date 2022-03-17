@@ -1,4 +1,4 @@
-import { FileUploadUseCase } from '@domain/files/useCases/FIleUploadUseCase';
+import { FileUploadUseCase } from '@domain/files/useCases/file-upload-use-case';
 
 import { UploadRequest, UploadResponse } from '../types/file-request';
 

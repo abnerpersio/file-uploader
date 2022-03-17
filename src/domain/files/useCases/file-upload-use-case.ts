@@ -1,5 +1,5 @@
-import { MissingFile } from '../errors/MissingFile';
-import { FileProviderSelector } from '../providers/FileProviderSelector';
+import { MissingFile } from '../errors/missing-file';
+import { FileProviderSelector } from '../providers/file-provider-selector';
 
 type FileUpload = {
   file?: Express.Multer.File;

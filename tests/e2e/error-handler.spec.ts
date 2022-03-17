@@ -1,10 +1,10 @@
 import { Request, Response } from 'express';
 import request from 'supertest';
 
-import { ErrorHandler } from '@shared/middlewares/ErrorHandler';
+import { RequestError } from '@shared/errors/request-error';
+import { ErrorHandler } from '@shared/middlewares/error-handler';
 
 import server from '../../src/server';
-import { RequestError } from '../../src/shared/errors/RequestError';
 
 describe(ErrorHandler.name, () => {
   it.each([
@@ -17,7 +17,7 @@ describe(ErrorHandler.name, () => {
     async ({ code, message, expectedStatus }) => {
       const route = `/internal/testing/error/${code}`;
 
-      server.get(route, async (_req: Request, _res: Response) => {
+      server.get(route, async () => {
         throw new RequestError(message, code);
       });
 
@@ -36,7 +36,7 @@ describe(ErrorHandler.name, () => {
   it('should handle throwned default errors at request', async () => {
     const route = `/internal/testing/error/default`;
 
-    server.get(route, async (_req: Request, _res: Response) => {
+    server.get(route, async () => {
       throw new Error('Testing throwing default errors');
     });
 

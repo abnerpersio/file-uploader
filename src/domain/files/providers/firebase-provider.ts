@@ -2,7 +2,7 @@ import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
 
 import { firebaseStorage } from '@config/firebase';
 
-import { FileProvider } from './FileProvider';
+import { FileProvider } from './file-provider';
 
 export class FirebaseProvider extends FileProvider {
   static readonly clientName = 'firebase';
