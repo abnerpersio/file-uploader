@@ -42,23 +42,6 @@ describe(FileController.name, () => {
     });
   });
 
-  it.each([
-    { provider: 'invalid-provider' },
-    { provider: 'invalid-provider--2' },
-    { provider: null },
-    { provider: undefined },
-    { provider: '' },
-    { provider: false },
-  ])('should validate the upload_provider sent', async ({ provider }) => {
-    const response = await request(server)
-      .post('/files')
-      .query({ upload_provider: provider })
-      .attach('file', mockFile);
-
-    expect(response.status).toBe(400);
-    expect(response.body.message).toBe('The upload client was not found');
-  });
-
   it('should validate required file', async () => {
     const response = await request(server).post('/files').query({ upload_provider: 'aws-s3' });
 
