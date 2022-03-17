@@ -1,10 +1,11 @@
 import { MissingFile } from '../errors/missing-file';
 import { FileProviderSelector } from '../providers/file-provider-selector';
+import { FileMetadata } from '../types/file';
 
 type FileUpload = {
   file?: Express.Multer.File;
   uploadProvider: string;
-  metadata: Record<string, unknown>;
+  metadata: FileMetadata;
 };
 
 export class FileUploadUseCase {
@@ -14,7 +15,7 @@ export class FileUploadUseCase {
     if (!file) throw new MissingFile();
 
     const provider = this.fileProviderSelector.select(uploadProvider);
-    const fileUrl = await provider.upload(file, metadata);
+    const fileUrl = await provider.upload({ file, metadata });
 
     return fileUrl;
   }

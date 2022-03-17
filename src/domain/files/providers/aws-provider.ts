@@ -1,13 +1,13 @@
 import { AWS_BUCKET, S3, UploadedFileAWSType } from '@config/aws';
 
+import { SendFileParams } from '../types/file';
 import { FileProvider } from './file-provider';
 
 export class AWSProvider extends FileProvider {
   static readonly clientName = 'aws-s3';
 
-  async upload(file: Express.Multer.File, metadata: Record<string, any>): Promise<string | null> {
+  async sendFile({ file, fileName, metadata }: SendFileParams): Promise<string | null> {
     const PUBLIC_READ_FILE_ACL = 'public-read';
-    const fileName = this.formatFileName(file.originalname);
 
     const FILE_PATH = `uploads/${fileName}`;
 
