@@ -8,7 +8,7 @@ Available platforms for upload:
 
 - [x] AWS S3
 - [ ] Google Cloud
-- [ ] Google Drive
+- [x] Google Drive
 - [ ] Azure Blob Storage
 - [x] Firebase Storage
 
