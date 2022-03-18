@@ -1,10 +1,8 @@
 <h2 align="center">File uploader</h4>
 
 <p align="center"> 
-  <img src="https://media.giphy.com/media/3o7ZeqkYTvaL3lGjCw/giphy.gif" width="200" style="align: center" />
+  <img src="https://media.giphy.com/media/3o7ZeqkYTvaL3lGjCw/giphy.gif" width="250" style="align: center" />
 </p>
-
-<!-- <iframe src="" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/design-cloud-computing-3o7ZeqkYTvaL3lGjCw">via GIPHY</a></p> -->
 
 **A REST service for managing files with any platform**
 
