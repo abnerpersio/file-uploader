@@ -1,22 +1,76 @@
 <h2 align="center">File uploader</h4>
 
 <p align="center"> 
-  <img src="https://media.giphy.com/media/3o7ZeqkYTvaL3lGjCw/giphy.gif" width="250" style="align: center" />
+  <img src="https://media.giphy.com/media/3o7ZeqkYTvaL3lGjCw/giphy.gif" width="250" />
 </p>
 
-**A REST service for managing files with any platform**
+<h3 align="center">A service for managing files with any platform</h3>
 
-The main idea is to be platform agnostic
+*You can use it for manage files or any other idea you have :)*
 
-Available platforms for upload:
+Using the service:
+
+### API Docs
+
+- **POST** `/files`
+
+Sample request
+
+**Headers:** 
+```json
+Content-Type: multipart/form-data
+```
+**Query**
+```json
+{
+  "upload_provider": "provider"
+}
+```
+**Body (image metadata - optional)**
+```json
+{
+  "key": "value"
+}
+```
+
+Sample responses
+
+<span style="color:red;font-weight:bold">400 (invalid upload provider sent)</span>
+```json
+{
+  "success": false,
+  "message": "The upload client was not found"
+}
+```
+
+<span style="color:red;font-weight:bold">422 (missing or invalid file)</span>
+```json
+{
+  "success": false,
+  "message": "File is required for uploading"
+}
+```
+
+<span style="color:green;font-weight:bold">201</span>
+```json
+{
+  "success": true,
+  "data": {
+    "url": "https://uploaded-image.ext"
+  }
+}
+```
+
+#### Available platforms for upload:
 
 - [x] AWS S3
-- [ ] Google Cloud
 - [x] Google Drive
-- [ ] Azure Blob Storage
 - [x] Firebase Storage
+- [ ] Google Cloud
+- [ ] Azure Blob Storage
 
-## How to run the project
+### Technical Documentation
+#### How to run the project
 
 *1. Clone this project*
 ```bash
