@@ -18,14 +18,18 @@ Sample request
 
 **Headers:** 
 ```json
-Content-Type: multipart/form-data
+{
+  "Content-Type": "multipart/form-data"
+}
 ```
+
 **Query**
 ```json
 {
   "upload_provider": "provider"
 }
 ```
+
 **Body (image metadata - optional)**
 ```json
 {
