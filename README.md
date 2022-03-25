@@ -68,9 +68,9 @@ Sample responses
 #### Available platforms for upload:
 
 - [x] AWS S3
-- [x] Google Drive
+- [x] Google Cloud
 - [x] Firebase Storage
-- [ ] Google Cloud
+- [ ] Google Drive
 - [ ] Azure Blob Storage
 
 ### Technical Documentation
