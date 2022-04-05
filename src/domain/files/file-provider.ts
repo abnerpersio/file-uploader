@@ -1,6 +1,6 @@
 import crypto from 'crypto';
 
-import { SendFileParams, UploadFileParams } from '../types/file';
+import { SendFileParams, UploadFileParams } from './types/file';
 
 export abstract class FileProvider {
   abstract sendFile(params: SendFileParams): Promise<string | null>;
@@ -11,7 +11,7 @@ export abstract class FileProvider {
   }
 
   private formatFileName(originalFileName: string) {
-    const hash = crypto.randomBytes(6).toString('hex');
+    const hash = crypto.randomBytes(8).toString('hex');
     return `${hash}-${originalFileName}`;
   }
 }

@@ -1,7 +1,7 @@
 import { AWS_BUCKET, S3, UploadedFileAWSType } from '@config/aws';
 
+import { FileProvider } from '../file-provider';
 import { SendFileParams } from '../types/file';
-import { FileProvider } from './file-provider';
 
 export class AWSProvider extends FileProvider {
   static readonly clientName = 'aws-s3';

@@ -1,5 +1,5 @@
 import { MissingFile } from '../errors/missing-file';
-import { FileProviderSelector } from '../providers/file-provider-selector';
+import { FileProviderSelector } from '../file-provider-selector';
 import { FileMetadata } from '../types/file';
 
 type FileUpload = {

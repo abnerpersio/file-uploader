@@ -1,6 +1,6 @@
 import { Router } from 'express';
 
-import { FileProviderSelector } from '@domain/files/providers/file-provider-selector';
+import { FileProviderSelector } from '@domain/files/file-provider-selector';
 import { FileUploadUseCase } from '@domain/files/useCases/file-upload-use-case';
 import { UploadMiddleware } from '@shared/middlewares/upload-middleware';
 

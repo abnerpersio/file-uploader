@@ -1,7 +1,7 @@
 import { Readable } from 'stream';
 
-import { SendFileParams } from '../../types/file';
 import { FileProvider } from '../file-provider';
+import { SendFileParams } from '../types/file';
 
 describe(FileProvider.name, () => {
   class TestProvider extends FileProvider {

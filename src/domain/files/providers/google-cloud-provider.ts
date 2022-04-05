@@ -1,7 +1,7 @@
 import { GOOGLE_CLOUD_BUCKET, googleCloudStorage } from '@config/google-cloud';
 
+import { FileProvider } from '../file-provider';
 import { SendFileParams } from '../types/file';
-import { FileProvider } from './file-provider';
 
 export class GoogleCloudProvider extends FileProvider {
   static readonly clientName = 'google-cloud';

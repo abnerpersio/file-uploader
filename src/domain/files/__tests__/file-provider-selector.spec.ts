@@ -1,6 +1,6 @@
-import { AWSProvider } from '../aws-provider';
 import { FileProviderSelector } from '../file-provider-selector';
-import { FirebaseProvider } from '../firebase-provider';
+import { AWSProvider } from '../providers/aws-provider';
+import { FirebaseProvider } from '../providers/firebase-provider';
 
 describe(FileProviderSelector.name, () => {
   const fileProviderSelector = new FileProviderSelector();

@@ -1,10 +1,11 @@
 import { FILE_CLIENT_NOT_FOUND } from '@shared/constants/messages';
 import { RequestError } from '@shared/errors/request-error';
 
-import { AWSProvider } from './aws-provider';
 import { FileProvider } from './file-provider';
-import { FirebaseProvider } from './firebase-provider';
-import { GoogleCloudProvider } from './google-cloud-provider';
+import { AWSProvider } from './providers/aws-provider';
+import { AzureProvider } from './providers/azure-provider';
+import { FirebaseProvider } from './providers/firebase-provider';
+import { GoogleCloudProvider } from './providers/google-cloud-provider';
 
 export class FileProviderSelector {
   select(uploadClient: string): FileProvider {
@@ -17,6 +18,9 @@ export class FileProviderSelector {
 
       case GoogleCloudProvider.clientName:
         return new GoogleCloudProvider();
+
+      case AzureProvider.clientName:
+        return new AzureProvider();
 
       default:
         throw new RequestError(FILE_CLIENT_NOT_FOUND, 400);
