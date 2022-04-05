@@ -6,7 +6,7 @@ describe(FileProviderSelector.name, () => {
   const fileProviderSelector = new FileProviderSelector();
 
   it.each([
-    { provider: 'aws-s3', instance: AWSProvider },
+    { provider: 'aws', instance: AWSProvider },
     { provider: 'firebase', instance: FirebaseProvider },
   ])('should select the right provider', ({ provider, instance }) => {
     const selectedProvider = fileProviderSelector.select(provider);

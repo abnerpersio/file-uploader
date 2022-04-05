@@ -4,7 +4,7 @@ import { FileProvider } from '../file-provider';
 import { SendFileParams } from '../types/file';
 
 export class GoogleCloudProvider extends FileProvider {
-  static readonly clientName = 'google-cloud';
+  static readonly clientName = 'google_cloud';
 
   async sendFile({ file, fileName, metadata }: SendFileParams): Promise<string | null> {
     const FILE_PATH = `uploads/${fileName}`;

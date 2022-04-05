@@ -33,7 +33,7 @@ describe(FileController.name, () => {
   it('should upload a file', async () => {
     const response = await request(server)
       .post('/files')
-      .query({ upload_provider: 'aws-s3' })
+      .query({ upload_provider: 'aws' })
       .attach('file', mockFile);
 
     expect(response.status).toBe(201);
@@ -43,7 +43,7 @@ describe(FileController.name, () => {
   });
 
   it('should validate required file', async () => {
-    const response = await request(server).post('/files').query({ upload_provider: 'aws-s3' });
+    const response = await request(server).post('/files').query({ upload_provider: 'aws' });
 
     expect(response.status).toBe(422);
     expect(response.body.message).toBe('File is required for uploading');

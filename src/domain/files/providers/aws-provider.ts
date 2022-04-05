@@ -4,7 +4,7 @@ import { FileProvider } from '../file-provider';
 import { SendFileParams } from '../types/file';
 
 export class AWSProvider extends FileProvider {
-  static readonly clientName = 'aws-s3';
+  static readonly clientName = 'aws';
 
   async sendFile({ file, fileName, metadata }: SendFileParams): Promise<string | null> {
     const PUBLIC_READ_FILE_ACL = 'public-read';
