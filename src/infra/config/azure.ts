@@ -8,8 +8,12 @@ const credentials: Record<string, string> = {
   AZURE_CONTAINER: process.env.AZURE_CONTAINER as string,
 };
 
-for (const key of Object.keys(credentials)) {
-  if (!credentials[key]) throw new InvalidConfiguration('azure');
+function verifyEnvs() {
+  if (process.env.NODE_ENV === 'test') return;
+
+  for (const key of Object.keys(credentials)) {
+    if (!credentials[key]) throw new InvalidConfiguration('azure', key);
+  }
 }
 
 const keyCredential = new StorageSharedKeyCredential(
@@ -20,3 +24,5 @@ const keyCredential = new StorageSharedKeyCredential(
 export const azureStorage = new BlobServiceClient(credentials.AZURE_URL, keyCredential);
 
 export const { AZURE_CONTAINER } = credentials;
+
+verifyEnvs();

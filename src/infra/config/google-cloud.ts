@@ -8,8 +8,12 @@ const credentials: Record<string, string> = {
   GOOGLE_CLOUD_BUCKET: process.env.GOOGLE_CLOUD_BUCKET as string,
 };
 
-for (const key of Object.keys(credentials)) {
-  if (!credentials[key]) throw new InvalidConfiguration('google_cloud');
+function verifyEnvs() {
+  if (process.env.NODE_ENV === 'test') return;
+
+  for (const key of Object.keys(credentials)) {
+    if (!credentials[key]) throw new InvalidConfiguration('google_cloud', key);
+  }
 }
 
 export const googleCloudStorage = new Storage({
@@ -21,3 +25,5 @@ export const googleCloudStorage = new Storage({
 });
 
 export const { GOOGLE_CLOUD_BUCKET } = credentials;
+
+verifyEnvs();

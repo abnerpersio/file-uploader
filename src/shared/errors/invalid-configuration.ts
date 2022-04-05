@@ -1,5 +1,5 @@
 export class InvalidConfiguration extends Error {
-  constructor(provider: string) {
-    super(`${provider} provider is misconfigured. Verify the environment variables`);
+  constructor(provider: string, key: string) {
+    super(`${provider} provider is misconfigured. ${key} field is missing. Verify env variables`);
   }
 }

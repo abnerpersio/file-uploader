@@ -9,8 +9,12 @@ const credentials: Record<string, string> = {
   FIREBASE_PROJECT_ID: process.env.FIREBASE_PROJECT_ID as string,
 };
 
-for (const key of Object.keys(credentials)) {
-  if (!credentials[key]) throw new InvalidConfiguration('firebase');
+function verifyEnvs() {
+  if (process.env.NODE_ENV === 'test') return;
+
+  for (const key of Object.keys(credentials)) {
+    if (!credentials[key]) throw new InvalidConfiguration('firebase', key);
+  }
 }
 
 const firebaseApp = initializeApp({
@@ -20,3 +24,5 @@ const firebaseApp = initializeApp({
 });
 
 export const firebaseStorage = getStorage(firebaseApp);
+
+verifyEnvs();
