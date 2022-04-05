@@ -12,6 +12,6 @@ module.exports = {
   collectCoverageFrom: ['src/**/*.{js,ts}'],
   testEnvironment: 'node',
   modulePathIgnorePatterns: ['node_modules'],
-  setupFilesAfterEnv: ['./jest.setup.js'],
+  setupFilesAfterEnv: ['./jest.setup.ts'],
   moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths, { prefix: '<rootDir>/' }),
 };
