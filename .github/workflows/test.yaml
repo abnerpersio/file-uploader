@@ -26,7 +26,7 @@ jobs:
         run: npm run test:cov > OUT; sed -n 6,8p OUT > .github/workflows/COVERAGE_REPORT
 
       - name: Comment coverage on PR
-      - uses: harupy/comment-on-pr@master
+        uses: harupy/comment-on-pr@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
