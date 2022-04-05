@@ -16,6 +16,13 @@ Using the service:
 
 Sample request
 
+Possible `upload_provider` values:
+
+```ts
+'aws' | 'firebase' | 'azure' | 'google_cloud'
+```
+
+
 **Headers:** 
 ```json
 {
