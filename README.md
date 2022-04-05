@@ -70,8 +70,7 @@ Sample responses
 - [x] AWS S3
 - [x] Google Cloud
 - [x] Firebase Storage
-- [ ] Google Drive
-- [ ] Azure Blob Storage
+- [x] Azure Blob Storage
 
 ### Technical Documentation
 #### How to run the project
