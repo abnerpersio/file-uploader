@@ -5,14 +5,13 @@
   "repository": "git@github.com:abnerpersio/file-uploader.git",
   "author": "Abner Persio <binhopersio@gmail.com>",
   "license": "MIT",
-  "type": "module",
   "scripts": {
+    "dev": "ts-node-dev -r tsconfig-paths/register --respawn src/index.ts",
     "test": "jest --runInBand",
     "test:cov": "jest --runInBand --coverage",
+    "build": "rimraf dist && esbuild src/index.ts --format=esm --bundle --platform=node --external:./node_modules/* --outfile=dist/index.mjs",
     "start": "npm run build && npm run start:prod",
-    "start:prod": "node dist/index.js",
-    "dev": "ts-node-dev -r tsconfig-paths/register --respawn src/index.ts",
-    "build": "rimraf dist && esbuild src/index.ts --bundle --format=esm --platform=node --target=node16 --external:./node_modules/* --outfile=dist/index.js",
+    "start:prod": "node dist/index.mjs",
     "format": "prettier --write **/*.ts",
     "lint": "eslint src/**/*.ts"
   },
