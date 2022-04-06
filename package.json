@@ -6,10 +6,12 @@
   "author": "Abner Persio <binhopersio@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "test": "jest --runInBand",
-    "test:cov": "jest --runInBand --coverage",
     "dev": "ts-node-dev -r tsconfig-paths/register --respawn src/index.ts",
-    "build": "rimraf dist && tsc",
+    "test": "dotenv -e .env.test -- jest --runInBand",
+    "test:cov": "dotenv -e .env.test -- jest --runInBand --coverage",
+    "build": "rimraf dist && esbuild src/index.ts --format=esm --bundle --platform=node --external:./node_modules/* --outfile=dist/index.mjs",
+    "start": "npm run build && npm run start:prod",
+    "start:prod": "node dist/index.mjs",
     "format": "prettier --write **/*.ts",
     "lint": "eslint src/**/*.ts"
   },
@@ -34,6 +36,7 @@
     "@typescript-eslint/eslint-plugin": "^5.14.0",
     "@typescript-eslint/parser": "^5.14.0",
     "dotenv-cli": "^5.1.0",
+    "esbuild": "^0.14.31",
     "eslint": "^8.10.0",
     "eslint-config-prettier": "^8.4.0",
     "eslint-plugin-import": "^2.25.4",
