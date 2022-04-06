@@ -1,4 +1,4 @@
-import { AWS_BUCKET, S3, UploadedFileAWSType } from '@config/aws';
+import { AWS_BUCKET, S3 } from '@config/aws';
 
 import { FileProvider } from '../file-provider';
 import { SendFileParams } from '../types/file';
@@ -11,22 +11,14 @@ export class AWSProvider extends FileProvider {
 
     const FILE_PATH = `uploads/${fileName}`;
 
-    let pathLocation = null;
-
     const upload = S3.upload({
       Bucket: AWS_BUCKET,
       Key: FILE_PATH,
       Body: file.buffer,
       ACL: PUBLIC_READ_FILE_ACL,
       Metadata: metadata,
-    });
+    }).promise();
 
-    upload.send((error: Error, uploaded: UploadedFileAWSType) => {
-      if (error) throw error;
-
-      pathLocation = uploaded.Location || null;
-    });
-
-    return pathLocation;
+    return upload.then((result) => result.Location || null);
   }
 }

@@ -2,8 +2,6 @@ import aws from 'aws-sdk';
 
 import { InvalidConfiguration } from '@shared/errors/invalid-configuration';
 
-export type UploadedFileAWSType = aws.S3.ManagedUpload.SendData;
-
 const credentials: Record<string, string> = {
   AWS_REGION: process.env.AWS_REGION as string,
   AWS_ACCESS_KEY_ID: process.env.AWS_ACCESS_KEY_ID as string,

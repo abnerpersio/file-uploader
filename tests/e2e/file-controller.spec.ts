@@ -6,8 +6,6 @@ import { FileController } from '@infra/controllers/file-controller';
 
 import server from '../../src/server';
 
-type CallbackType = (error: Error | null, data: unknown) => void;
-
 jest.mock('aws-sdk', () => ({
   config: {
     update: jest.fn(),
@@ -16,13 +14,10 @@ jest.mock('aws-sdk', () => ({
   Credentials: jest.fn(),
   S3: jest.fn().mockImplementation(() => ({
     upload: jest.fn().mockImplementation(() => ({
-      on: jest.fn().mockReturnThis(),
-      send: jest.fn().mockImplementation((cb: CallbackType) => {
-        cb(null, {
-          Location: 'http://bucket/mock-image.png',
-          ETag: 'fasdsad',
-          versionId: 2,
-        });
+      promise: jest.fn().mockResolvedValue({
+        Location: 'http://bucket/mock-image.png',
+        ETag: 'fasdsad',
+        versionId: 2,
       }),
     })),
   })),
@@ -36,6 +31,8 @@ describe(FileController.name, () => {
       .post('/files')
       .query({ upload_provider: 'aws' })
       .attach('file', mockFile);
+
+    console.log(response);
 
     expect(response.status).toBe(201);
     expect(response.body.data).toStrictEqual({
