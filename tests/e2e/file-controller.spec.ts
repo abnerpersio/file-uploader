@@ -32,8 +32,6 @@ describe(FileController.name, () => {
       .query({ upload_provider: 'aws' })
       .attach('file', mockFile);
 
-    console.log(response);
-
     expect(response.status).toBe(201);
     expect(response.body.data).toStrictEqual({
       url: 'http://bucket/mock-image.png',
