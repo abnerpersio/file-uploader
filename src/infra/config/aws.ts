@@ -11,8 +11,12 @@ const credentials: Record<string, string> = {
   AWS_BUCKET: process.env.AWS_BUCKET as string,
 };
 
-for (const key of Object.keys(credentials)) {
-  if (!credentials[key]) throw new InvalidConfiguration('aws');
+function verifyEnvs() {
+  if (process.env.NODE_ENV === 'test') return;
+
+  for (const key of Object.keys(credentials)) {
+    if (!credentials[key]) throw new InvalidConfiguration('aws', key);
+  }
 }
 
 aws.config.update({ region: credentials.AWS_REGION || 'us-east-1' });
@@ -25,3 +29,5 @@ aws.config.credentials = new aws.Credentials({
 export const S3 = new aws.S3();
 
 export const { AWS_BUCKET } = credentials;
+
+verifyEnvs();

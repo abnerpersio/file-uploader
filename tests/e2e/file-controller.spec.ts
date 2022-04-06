@@ -1,6 +1,7 @@
 import path from 'path';
 import request from 'supertest';
 
+import '@config/env';
 import { FileController } from '@infra/controllers/file-controller';
 
 import server from '../../src/server';
