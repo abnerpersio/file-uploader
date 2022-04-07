@@ -1,0 +1,109 @@
+_type: export
+__export_format: 4
+__export_date: 2022-04-07T00:12:42.927Z
+__export_source: insomnia.desktop.app:v2022.2.1
+resources:
+  - _id: req_1d467bfacd3b42de886b451a698723bb
+    parentId: fld_b3bddda0a60543b2af5bf9f878f54ca3
+    modified: 1649290310682
+    created: 1649290297148
+    url: http://localhost:8080/internal/health
+    name: Health
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1649290297148
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_b3bddda0a60543b2af5bf9f878f54ca3
+    parentId: wrk_31a80451ee5a493ab7294f7da078a746
+    modified: 1646221304787
+    created: 1646221288858
+    name: File Uploader
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1646221288858
+    _type: request_group
+  - _id: wrk_31a80451ee5a493ab7294f7da078a746
+    parentId: null
+    modified: 1642461397967
+    created: 1642461375178
+    name: projects
+    description: ""
+    scope: collection
+    _type: workspace
+  - _id: req_156a9d295fa34287990fa58ac9ff51a8
+    parentId: fld_b3bddda0a60543b2af5bf9f878f54ca3
+    modified: 1649290313195
+    created: 1646221292750
+    url: http://localhost:8080/files
+    name: Upload file
+    description: ""
+    method: POST
+    body:
+      mimeType: multipart/form-data
+      params:
+        - id: pair_1e35680b6b4941cbb39757e909bb62fd
+          name: file
+          value: asdasd
+          description: ""
+          type: file
+          fileName: /path/to/file.png
+        - id: pair_b106a92e537041e5a9fa2d67e8831768
+          name: ""
+          value: ""
+          description: ""
+    parameters:
+      - id: pair_c0a314f840bb444589d35203ae430b53
+        name: upload_provider
+        value: aws
+        description: ""
+    headers:
+      - name: Content-Type
+        value: multipart/form-data
+    authentication: {}
+    metaSortKey: -1646221292750
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: env_f2aeaf798b7b8e16a4bceb1a8ce11f3d631be816
+    parentId: wrk_31a80451ee5a493ab7294f7da078a746
+    modified: 1642461375193
+    created: 1642461375193
+    name: Base Environment
+    data: {}
+    dataPropertyOrder: null
+    color: null
+    isPrivate: false
+    metaSortKey: 1642461375193
+    _type: environment
+  - _id: jar_f2aeaf798b7b8e16a4bceb1a8ce11f3d631be816
+    parentId: wrk_31a80451ee5a493ab7294f7da078a746
+    modified: 1642461375194
+    created: 1642461375194
+    name: Default Jar
+    cookies: []
+    _type: cookie_jar
+  - _id: spc_1db44358f44e4b84a9f13c923907f9ab
+    parentId: wrk_31a80451ee5a493ab7294f7da078a746
+    modified: 1642461375184
+    created: 1642461375184
+    fileName: Projetos
+    contents: ""
+    contentType: yaml
+    _type: api_spec
