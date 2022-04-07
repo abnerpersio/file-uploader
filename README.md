@@ -1,50 +1,106 @@
 <h2 align="center">File uploader</h4>
 
 <p align="center"> 
-  <img src="https://media.giphy.com/media/3o7ZeqkYTvaL3lGjCw/giphy.gif" width="250" />
+  <img src="https://media.giphy.com/media/3o7ZeqkYTvaL3lGjCw/giphy.gif" width="200" />
 </p>
 
 <h3 align="center">A service for managing files with any platform</h3>
 
-*You can use it for manage files or any other idea you have :)*
+*You can use it for manage your files or as a simple REST service :)*
 
-Using the service:
+### All about the service:
+
+This was made for learning more about Clean Code, OOP in Javascript, Typescript, Node, Cloud Platforms (aws, azure, google cloud, firebase), github workflows, automated deploy with Heroku or any other system.
+
+Developed with:
+- Typescript
+- Node
+
+Tested with:
+- Jest
+
+Deployed (automacally) with:
+- Heroku
+
+#### Available platforms for upload:
+
+- [x] AWS S3
+- [x] Google Cloud
+- [x] Firebase Storage
+- [x] Azure Blob Storage
+
+
+### Technical Documentation
+#### How to run the project
+
+*1. Clone this project*
+```bash
+git clone https://github.com/abnerpersio/file-uploader.git
+cd file-uploader
+```
+
+*2. Configure `.env` file based on `.env.example` with your configurations*
+
+You can configure only the providers that you want. Eg.: AWS or Firebase
+
+*3. Install dependencies*
+```bash
+yarn 
+```
+
+*4. Run development server*
+```bash
+yarn dev
+```
+
+**If you wanna run in production:**
+
+*5. Build the project*
+```bash
+yarn build
+```
+
+*6. Start the production server*
+```bash
+yarn start
+```
+
 
 ### API Docs
 
-- **POST** `/files`
+There is a insomnia `.yaml` file with request in `docs/` folder. Import it on your insomnia to use the requests
 
-Sample request
+**POST** `/files`
 
-Possible `upload_provider` values:
+Possible `upload_provider` values (query: upload_provider):
 
 ```ts
 'aws' | 'firebase' | 'azure' | 'google_cloud'
 ```
 
-
-**Headers:** 
+Headers: 
 ```json
 {
   "Content-Type": "multipart/form-data"
 }
 ```
 
-**Query**
+Query
 ```json
 {
   "upload_provider": "provider"
 }
 ```
 
-**Body (image metadata - optional)**
+Body (image metadata - optional)
 ```json
 {
   "key": "value"
 }
 ```
 
-Sample responses
+
+**Sample responses**
 
 <span style="color:red;font-weight:bold">400 (invalid upload provider sent)</span>
 ```json
@@ -70,46 +126,4 @@ Sample responses
     "url": "https://uploaded-image.ext"
   }
 }
-```
-
-#### Available platforms for upload:
-
-- [x] AWS S3
-- [x] Google Cloud
-- [x] Firebase Storage
-- [x] Azure Blob Storage
-
-### Technical Documentation
-#### How to run the project
-
-*1. Clone this project*
-```bash
-git clone https://github.com/abnerpersio/file-uploader.git
-cd file-uploader
-```
-
-*2. Configure `.env` file based on `.env.example` with your configurations*
-
-You can configure only the providers that you want. Eg.: AWS or Firebase
-
-*3. Install dependencies*
-```bash
-yarn // or npm install
-```
-
-*4. Run development server*
-```bash
-yarn dev // or npm run dev
-```
-
-**If you wanna run in production:**
-
-*5. Build the project*
-```bash
-yarn build // or npm run build
-```
-
-*6. Start the production server*
-```bash
-yarn start // or npm run start
 ```
