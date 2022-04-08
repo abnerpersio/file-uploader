@@ -8,7 +8,7 @@ import { SendFileParams } from '../types/file';
 export class FirebaseProvider extends FileProvider {
   static readonly clientName = 'firebase';
 
-  async sendFile({ file, fileName, metadata }: SendFileParams): Promise<string | null> {
+  protected async sendFile({ file, fileName, metadata }: SendFileParams): Promise<string | null> {
     const FILE_PATH = `uploads/${fileName}`;
 
     const fileStorageRef = ref(firebaseStorage, FILE_PATH);
