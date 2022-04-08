@@ -9,7 +9,6 @@ module.exports = {
   },
   clearMocks: true,
   coverageDirectory: './coverage',
-  collectCoverageFrom: ['src/**/*.{js,ts}'],
   testEnvironment: 'node',
   modulePathIgnorePatterns: ['node_modules'],
   setupFilesAfterEnv: ['./jest.setup.ts'],

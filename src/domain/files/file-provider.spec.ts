@@ -1,7 +1,6 @@
-import { Readable } from 'stream';
-
-import { FileProvider } from '../file-provider';
-import { SendFileParams } from '../types/file';
+import { getMockedFile } from '../../../tests/utils/file';
+import { FileProvider } from './file-provider';
+import { SendFileParams } from './types/file';
 
 describe(FileProvider.name, () => {
   class TestProvider extends FileProvider {
@@ -14,18 +13,10 @@ describe(FileProvider.name, () => {
     const testProvider = new TestProvider();
 
     const fileName = await testProvider.upload({
-      file: {
+      file: getMockedFile({
         filename: 'test-file-formatted-name.jpeg',
-        buffer: Buffer.from([0x62]),
         fieldname: 'jpeg',
-        destination: '/path/to/test-file-formatted-name.jpeg',
-        originalname: 'test-file-formatted-name.jpeg',
-        encoding: 'none',
-        mimetype: 'image/jpeg',
-        size: 200,
-        stream: new Readable(),
-        path: '/path/to/test-file-formatted-name.jpeg',
-      },
+      }),
       metadata: {},
     });
 

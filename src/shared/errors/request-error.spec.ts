@@ -1,4 +1,4 @@
-import { RequestError } from '../request-error';
+import { RequestError } from './request-error';
 
 describe(RequestError.name, () => {
   it('should create a default request error', () => {

@@ -1,6 +1,8 @@
-import { FileProviderSelector } from '../file-provider-selector';
-import { AWSProvider } from '../providers/aws-provider';
-import { FirebaseProvider } from '../providers/firebase-provider';
+import { FileProviderSelector } from './file-provider-selector';
+import { AWSProvider } from './providers/aws-provider';
+import { AzureProvider } from './providers/azure-provider';
+import { FirebaseProvider } from './providers/firebase-provider';
+import { GoogleCloudProvider } from './providers/google-cloud-provider';
 
 describe(FileProviderSelector.name, () => {
   const fileProviderSelector = new FileProviderSelector();
@@ -8,6 +10,8 @@ describe(FileProviderSelector.name, () => {
   it.each([
     { provider: 'aws', instance: AWSProvider },
     { provider: 'firebase', instance: FirebaseProvider },
+    { provider: 'google_cloud', instance: GoogleCloudProvider },
+    { provider: 'azure', instance: AzureProvider },
   ])('should select the right provider', ({ provider, instance }) => {
     const selectedProvider = fileProviderSelector.select(provider);
 

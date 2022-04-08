@@ -6,7 +6,7 @@ import { SendFileParams } from '../types/file';
 export class AWSProvider extends FileProvider {
   static readonly clientName = 'aws';
 
-  async sendFile({ file, fileName, metadata }: SendFileParams): Promise<string | null> {
+  protected async sendFile({ file, fileName, metadata }: SendFileParams): Promise<string | null> {
     const PUBLIC_READ_FILE_ACL = 'public-read';
 
     const FILE_PATH = `uploads/${fileName}`;
@@ -17,8 +17,9 @@ export class AWSProvider extends FileProvider {
       Body: file.buffer,
       ACL: PUBLIC_READ_FILE_ACL,
       Metadata: metadata,
-    }).promise();
+    });
 
-    return upload.then((result) => result.Location || null);
+    const result = await upload.promise();
+    return result.Location || null;
   }
 }

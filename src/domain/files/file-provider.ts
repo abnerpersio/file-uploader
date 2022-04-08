@@ -3,7 +3,7 @@ import crypto from 'crypto';
 import { SendFileParams, UploadFileParams } from './types/file';
 
 export abstract class FileProvider {
-  abstract sendFile(params: SendFileParams): Promise<string | null>;
+  protected abstract sendFile(params: SendFileParams): Promise<string | null>;
 
   upload({ file, metadata }: UploadFileParams) {
     const formattedFileName = this.formatFileName(file.originalname);

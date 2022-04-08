@@ -6,13 +6,15 @@ import { SendFileParams } from '../types/file';
 export class AzureProvider extends FileProvider {
   static readonly clientName = 'azure';
 
-  async sendFile(params: SendFileParams): Promise<string | null> {
+  protected async sendFile({ file, fileName, metadata }: SendFileParams): Promise<string | null> {
     const azureContainer = azureStorage.getContainerClient(AZURE_CONTAINER);
-    const client = azureContainer.getBlockBlobClient(params.fileName);
+    if (!azureContainer) return null;
 
-    if (!azureContainer || !client) return null;
+    const client = azureContainer.getBlockBlobClient(fileName);
+    if (!client) return null;
 
-    await client.uploadData(params.file.buffer);
+    await client.setMetadata(metadata);
+    await client.uploadData(file.buffer);
     return client.url;
   }
 }
