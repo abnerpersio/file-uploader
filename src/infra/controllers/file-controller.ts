@@ -1,25 +1,34 @@
 import { FileUploadUseCase } from '@domain/files/useCases/file-upload-use-case';
 
-import { UploadRequest, UploadResponse } from '../types/file-request';
+import { FileMetadata } from '../../domain/files/types/file';
+import { Provider } from '../../domain/files/types/providers';
+import { Controller } from '../adapters/express-adapter';
 
-export class FileController {
+type Input = FileMetadata & {
+  upload_provider: Provider;
+  file: Express.Multer.File;
+};
+
+export class FileController implements Controller<Input> {
   constructor(private fileUploadUseCase: FileUploadUseCase) {}
 
-  upload = async (req: UploadRequest, res: UploadResponse) => {
-    const { upload_provider } = req.query;
-    const { file, body } = req;
+  async execute(input: Input) {
+    const { upload_provider, file, ...metadata } = input;
 
     const fileUrl = await this.fileUploadUseCase.execute({
       file,
-      metadata: body,
+      metadata,
       uploadProvider: upload_provider,
     });
 
-    res.status(201).json({
-      success: true,
+    return {
+      status: 201,
       data: {
-        url: fileUrl,
+        success: true,
+        data: {
+          url: fileUrl,
+        },
       },
-    });
-  };
+    };
+  }
 }
