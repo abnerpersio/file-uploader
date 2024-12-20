@@ -1,9 +1,5 @@
 <h2 align="center">File uploader</h4>
 
-<p align="center"> 
-  <img src="https://media.giphy.com/media/3o7ZeqkYTvaL3lGjCw/giphy.gif" width="200" />
-</p>
-
 <h3 align="center">A service for managing files with any platform</h3>
 
 *You can use it for manage your files or as a simple REST service :)*
